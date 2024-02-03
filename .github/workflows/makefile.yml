@@ -17,6 +17,8 @@ jobs:
     - name: configure
       run: |
            pwd
+           tree -L 2
+           uname -a
            ./configure --disable-multilib --enable-languages=c,c++ --disable-multilib --host=x86_64-pc-linux-gnu --target=x86_64-pc-linux-gnu
 
     - name: Install dependencies
