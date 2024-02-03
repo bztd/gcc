@@ -15,7 +15,7 @@ jobs:
     - uses: actions/checkout@v3
 
     - name: configure
-      run: ./configure
+      run: ./configure --disable-multilib
 
     - name: Install dependencies
       run: make
