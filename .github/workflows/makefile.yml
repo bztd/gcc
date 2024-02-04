@@ -19,7 +19,8 @@ jobs:
            pwd
            nproc
            uname -a
-           ./configure --disable-multilib --enable-languages=c,c++ --disable-multilib --host=x86_64-pc-linux-gnu --target=x86_64-pc-linux-gnu --enable-deterministic-archives --disable-bootstrap --enable-default-pie --enable-default-ssp --disable-libssp --enable-linker-build-id --disable-libstdcxx-filesystem-ts
+           free -h
+           ./configure --disable-multilib --enable-languages=c,c++ --enable-multiarch --host=x86_64-pc-linux-gnu --target=x86_64-pc-linux-gnu --enable-deterministic-archives --disable-bootstrap --enable-default-pie --enable-default-ssp --disable-libssp --enable-linker-build-id --disable-libstdcxx-filesystem-ts --enable-shared
 
     - name: Make
       run: make
