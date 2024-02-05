@@ -13,15 +13,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-
+    - name: dep
+      run: |
+           apt update
+           apt upgrade
+           apt -y install binutils
     - name: configure
       run: |
-           pwd
-           nproc
-           uname -a
-           free -h
-           ./configure --disable-multilib # --enable-languages=c,c++ --enable-multiarch --host=x86_64-pc-linux-gnu --target=x86_64-pc-linux-gnu --enable-deterministic-archives --disable-bootstrap --enable-default-pie --enable-default-ssp --disable-libssp --enable-linker-build-id --disable-libstdcxx-filesystem-ts --enable-shared
-
+           ./configure --disable-multilib --enable-languages=c,c++ --enable-multiarch --host=x86_64-pc-linux-gnu --target=x86_64-pc-linux-gnu --enable-deterministic-archives --disable-bootstrap --enable-default-pie --enable-default-ssp --disable-libssp --enable-linker-build-id --disable-libstdcxx-filesystem-ts --enable-shared
     - name: Make
       run: make
 
