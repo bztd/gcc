@@ -17,7 +17,7 @@ jobs:
       run: |
            sudo apt update
            sudo apt upgrade
-           sudo apt -y install binutils m4 autoconf
+           sudo apt -y install binutils m4 autoconf libtool automake nasm pkgconf
     - name: configure
       run: |
            ./configure --disable-multilib --enable-languages=c,c++ --enable-multiarch --host=x86_64-pc-linux-gnu --target=x86_64-pc-linux-gnu --enable-deterministic-archives --disable-bootstrap --enable-default-pie --enable-default-ssp --disable-libssp --enable-linker-build-id --disable-libstdcxx-filesystem-ts --enable-shared
