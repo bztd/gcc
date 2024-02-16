@@ -10,36 +10,36 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - name: entorno
-      run: |
-           sudo apt update
-           sudo apt upgrade
-           sudo apt -y install binutils m4 autoconf libtool automake nasm pkgconf
-    - name: configure-binutils
-      run : |
-            mkdir binutils-2.42/build
-            cd binutils-2.42/build
-            ../configure --prefix=/home/runner/work/gcc/gcc/builds --target=x86_64-pc-linux-gnu --with-sysroot=/home/runner/work/gcc/gcc/builds
-    - name: make-binutils
-      run: |
-           cd binutils-2.42/build
-           make
-    - name: install-binutils
-    - run: |
-           cd binutils-2.42/build
-           make install
-    - name: configure-gcc
-      run: |
-           mkdir build
-           cd build
-           ../configure --disable-multilib --enable-languages=c,c++ --enable-multiarch --host=x86_64-pc-linux-gnu --target=x86_64-pc-linux-gnu --enable-deterministic-archives --disable-bootstrap --enable-default-pie --enable-default-ssp --disable-libssp --enable-linker-build-id --disable-libstdcxx-filesystem-ts --enable-shared --prefix=/home/runner/work/gcc/gcc/builds --with-sysroot=/home/runner/work/gcc/gcc/builds
-    - name: make-gcc
-      run: make
-    - name: install-gcc
-      run: make install
-    - name: upload
-      uses: actions/upload-artifact@v4
-      with:
-        name: binaries
-        path: builds
+      - uses: actions/checkout@v3
+      - name: entorno
+        run: |
+             sudo apt update
+             sudo apt upgrade
+             sudo apt -y install binutils m4 autoconf libtool automake nasm pkgconf
+      - name: configure-binutils
+        run : |
+              mkdir binutils-2.42/build
+              cd binutils-2.42/build
+              ../configure --prefix=/home/runner/work/gcc/gcc/builds --target=x86_64-pc-linux-gnu --with-sysroot=/home/runner/work/gcc/gcc/builds
+      - name: make-binutils
+        run: |
+             cd binutils-2.42/build
+             make
+      - name: install-binutils
+      - run: |
+             cd binutils-2.42/build
+             make install
+      - name: configure-gcc
+        run: |
+             mkdir build
+             cd build
+             ../configure --disable-multilib --enable-languages=c,c++ --enable-multiarch --host=x86_64-pc-linux-gnu --target=x86_64-pc-linux-gnu --enable-deterministic-archives --disable-bootstrap --enable-default-pie --enable-default-ssp --disable-libssp --enable-linker-build-id --disable-libstdcxx-filesystem-ts --enable-shared --prefix=/home/runner/work/gcc/gcc/builds --with-sysroot=/home/runner/work/gcc/gcc/builds
+      - name: make-gcc
+        run: make
+      - name: install-gcc
+        run: make install
+      - name: upload
+        uses: actions/upload-artifact@v4
+        with:
+            name: binaries
+            path: builds
