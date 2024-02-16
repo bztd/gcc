@@ -15,7 +15,7 @@ jobs:
         run: |
              sudo apt update
              sudo apt upgrade
-             sudo apt -y install binutils m4 autoconf libtool automake nasm pkgconf
+             sudo apt -y install binutils m4 autoconf libtool automake nasm pkgconf texinfo
       - name: configure-binutils
         run : |
               mkdir binutils-2.42/build
