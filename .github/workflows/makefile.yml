@@ -20,12 +20,12 @@ jobs:
         run : |
               mkdir builds
               mkdir binutils-2.42/build
-              cd binutils-2.42/build
-              ../configure --prefix=/home/runner/work/gcc/gcc/builds --target=x86_64-pc-linux-gnu --with-sysroot=/home/runner/work/gcc/gcc/builds --disable-nls --enable-gprofng=no
+              cd binutils-2.42
+              ./configure --prefix=/home/runner/work/gcc/gcc/builds --target=x86_64-pc-linux-gnu --with-sysroot=/home/runner/work/gcc/gcc/builds --disable-nls --enable-gprofng=no
       - name: make-binutils
         run: |
              pwd
-             cd binutils-2.42/build
+             cd binutils-2.42/
              make
       - name: install-binutils
         run: |
