@@ -18,7 +18,7 @@ jobs:
       - name: configure-binutils-bbb
         run : |
               cd binutils-2.41
-              ./configure --prefix=/home/runner/work/gcc/gcc/builds --target=x86_64-pc-linux-gnu --with-sysroot=/home/runner/work/gcc/gcc/builds --disable-nls --enable-gprofng=no
+              ./configure
               make
 
       - name: configure-binutils
