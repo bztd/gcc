@@ -20,7 +20,7 @@ jobs:
         run : |
               mkdir binutils-2.42/build
               cd binutils-2.42/build
-              ../configure --disable-nls --enable-gprofng=no --disable-werror# --prefix=/home/runner/work/gcc/gcc/builds 
+              ../configure --disable-nls --enable-gprofng=no --disable-werror # --prefix=/home/runner/work/gcc/gcc/builds 
               # --target=x86_64-pc-linux-gnu --with-sysroot=/home/runner/work/gcc/gcc/builds --disable-nls --enable-gprofng=no
       - name: make-binutils
         run: |
